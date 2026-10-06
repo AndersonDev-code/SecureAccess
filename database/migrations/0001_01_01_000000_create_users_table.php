@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('matricule');
+            $table->string('matricule')->unique();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('email')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('telephone')->nullable();
             $table->string('service');
 
             // badge RFID
-            $table->string('rfid_uid')->nullable();
+            $table->string('rfid_uid')->nullable()->unique();
             // photo de reference
             $table->string('photo')->nullable();
             // encodage biometrique
@@ -30,11 +30,6 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
-            // Index uniques séparés
-            $table->unique('matricule');
-            $table->unique('email');
-            $table->unique('rfid_uid');
         });
     }
 

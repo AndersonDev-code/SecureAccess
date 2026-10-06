@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     nginx
 
-RUN docker-php-ext-install pdo pdo_pgsql mbstring exif pcntl bcmath gd
+RUN docker-php-ext-install pdo pdo_pgsql pdo_mysql mbstring exif pcntl bcmath gd
 
 # Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

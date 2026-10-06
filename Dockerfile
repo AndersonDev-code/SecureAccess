@@ -42,6 +42,10 @@ RUN echo 'server { \
     } \
 }' > /etc/nginx/sites-available/default
 
+# Copie et configuration du script de démarrage
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 EXPOSE 80
 
-CMD php artisan migrate --force && php-fpm & nginx -g "daemon off;"
+CMD ["docker-entrypoint.sh"]

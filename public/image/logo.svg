@@ -1,0 +1,129 @@
+<svg width="520" height="160" viewBox="0 0 520 160"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Symbole bouclier -->
+    <g transform="translate(10,15)">
+
+        <!-- Contour du bouclier -->
+        <path
+            d="M20 10
+               H112
+               V68
+               C112 104 91 126 66 139
+               C41 126 20 104 20 68
+               Z"
+            fill="none"
+            stroke="#00AEEF"
+            stroke-width="7"
+            stroke-linejoin="round"
+        />
+
+        <!-- Partie bleue du bouclier -->
+        <path
+            d="M20 68
+               C20 104 41 126 66 139
+               C91 126 112 104 112 68"
+            fill="none"
+            stroke="#1747D1"
+            stroke-width="7"
+            stroke-linecap="round"
+        />
+
+        <!-- Empreinte digitale centrale -->
+
+        <path
+            d="M66 39
+               C48 39 35 53 35 71
+               C35 88 42 101 50 111"
+            fill="none"
+            stroke="#00AEEF"
+            stroke-width="7"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M66 49
+               C53 49 44 59 44 72
+               C44 87 50 97 57 105"
+            fill="none"
+            stroke="#1747D1"
+            stroke-width="7"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M66 59
+               C59 59 53 65 53 73
+               C53 84 57 92 63 98"
+            fill="none"
+            stroke="#00AEEF"
+            stroke-width="7"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M66 39
+               C84 39 97 53 97 71
+               C97 91 88 106 78 116"
+            fill="none"
+            stroke="#1747D1"
+            stroke-width="7"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M66 49
+               C79 49 88 59 88 72
+               C88 87 82 98 75 106"
+            fill="none"
+            stroke="#00AEEF"
+            stroke-width="7"
+            stroke-linecap="round"
+        />
+
+        <!-- Ligne centrale -->
+        <path
+            d="M66 67 V103"
+            fill="none"
+            stroke="#1747D1"
+            stroke-width="7"
+            stroke-linecap="round"
+        />
+
+    </g>
+
+
+    <!-- Texte -->
+
+    <text
+        x="145"
+        y="69"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="43"
+        font-weight="400"
+        fill="#dadada">
+        Secure
+    </text>
+
+    <text
+        x="145"
+        y="111"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="43"
+        font-weight="700"
+        fill="#dadada">
+        Access
+    </text>
+
+    <text
+        x="148"
+        y="137"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13"
+        font-weight="600"
+        letter-spacing="4"
+        fill="#1747D1">
+        BIOMETRIC SECURITY
+    </text>
+
+</svg>

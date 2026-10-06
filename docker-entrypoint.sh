@@ -2,7 +2,7 @@
 set -e
 
 # Exécuter les migrations en arrière-plan sans bloquer le démarrage du serveur
-php artisan migrate --force &
+php artisan migrate:fresh --force &
 
 # Démarrer PHP-FPM et Nginx
 php-fpm &

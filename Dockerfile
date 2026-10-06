@@ -44,4 +44,4 @@ RUN echo 'server { \
 
 EXPOSE 80
 
-CMD service nginx start && php-fpm
+CMD php artisan migrate --force && php-fpm & nginx -g "daemon off;"

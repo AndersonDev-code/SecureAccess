@@ -18,87 +18,145 @@ class AuthController extends Controller
     /**
      * Traiter la connexion.
      */
-    public function login(Request $request)
-    {
-        /*
-        |--------------------------------------------------------------------------
-        | Validation
-        |--------------------------------------------------------------------------
-        */
 
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required', 'string'],
-        ], [
-            'email.required' => 'Veuillez saisir votre adresse email.',
-            'email.email' => 'Veuillez saisir une adresse email valide.',
-            'password.required' => 'Veuillez saisir votre mot de passe.',
-        ]);
+public function login(Request $request)
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Validation
+    |--------------------------------------------------------------------------
+    */
+
+    $credentials = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required', 'string'],
+    ], [
+        'email.required' => 'Veuillez saisir votre adresse email.',
+        'email.email' => 'Veuillez saisir une adresse email valide.',
+        'password.required' => 'Veuillez saisir votre mot de passe.',
+    ]);
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Tentative de connexion
-        |--------------------------------------------------------------------------
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | TEST DE CONNEXION À LA BASE DE DONNÉES
+    |--------------------------------------------------------------------------
+    */
 
-        if (!Auth::attempt($credentials, $request->boolean('remember'))) {
+    try {
+
+        // Teste réellement la connexion à la base configurée sur Render/Aiven.
+        \DB::connection()->getPdo();
+
+    } catch (\Throwable $e) {
+
+        // IMPORTANT :
+        // On affiche temporairement l'erreur réelle pour le diagnostic.
+        return back()
+            ->withInput($request->only('email'))
+            ->withErrors([
+                'email' => 'ERREUR DE CONNEXION À LA BASE DE DONNÉES : '
+                    . $e->getMessage(),
+            ]);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TEST DE LA TABLE USERS
+    |--------------------------------------------------------------------------
+    */
+
+    try {
+
+        // Vérifie que Laravel peut réellement accéder à la table users.
+        \DB::table('users')->limit(1)->get();
+
+    } catch (\Throwable $e) {
+
+        return back()
+            ->withInput($request->only('email'))
+            ->withErrors([
+                'email' => 'CONNEXION À LA BASE OK, MAIS ERREUR SUR LA TABLE USERS : '
+                    . $e->getMessage(),
+            ]);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TENTATIVE DE CONNEXION
+    |--------------------------------------------------------------------------
+    */
+
+    try {
+
+        if (!Auth::attempt(
+            $credentials,
+            $request->boolean('remember')
+        )) {
 
             return back()
                 ->withInput($request->only('email'))
                 ->withErrors([
-                    'email' => 'Email ou mot de passe incorrect.',
+                    'email' => 'BASE DE DONNÉES ACCESSIBLE. Utilisateur introuvable ou mot de passe incorrect.',
                 ]);
         }
 
+    } catch (\Throwable $e) {
 
-        /*
-        |--------------------------------------------------------------------------
-        | Régénérer la session
-        |--------------------------------------------------------------------------
-        */
-
-        $request->session()->regenerate();
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Vérification du rôle administrateur
-        |--------------------------------------------------------------------------
-        */
-
-        $user = Auth::user();
-
-        /*
-         * On accepte ici les deux écritures courantes :
-         * admin
-         * administrateur
-         */
-        $role = strtolower(trim((string) $user->role));
-
-        if (!in_array($role, ['admin', 'administrateur'])) {
-
-            Auth::logout();
-
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
-
-            return back()->withErrors([
-                'email' => 'Ce compte ne possède pas les droits administrateur.',
+        return back()
+            ->withInput($request->only('email'))
+            ->withErrors([
+                'email' => 'ERREUR PENDANT LA REQUÊTE D’AUTHENTIFICATION : '
+                    . $e->getMessage(),
             ]);
-        }
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Connexion réussie
-        |--------------------------------------------------------------------------
-        */
-
-        return redirect()
-            ->intended(route('dashboard'))
-            ->with('success', 'Connexion administrateur réussie.');
     }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | RÉGÉNÉRER LA SESSION
+    |--------------------------------------------------------------------------
+    */
+
+    $request->session()->regenerate();
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | VÉRIFICATION DU RÔLE ADMINISTRATEUR
+    |--------------------------------------------------------------------------
+    */
+
+    $user = Auth::user();
+
+    $role = strtolower(trim((string) $user->role));
+
+    if (!in_array($role, ['admin', 'administrateur'])) {
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return back()->withErrors([
+            'email' => 'CONNEXION RÉUSSIE, MAIS CE COMPTE N’A PAS LE RÔLE ADMINISTRATEUR.',
+        ]);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | CONNEXION RÉUSSIE
+    |--------------------------------------------------------------------------
+    */
+
+    return redirect()
+        ->intended(route('dashboard'))
+        ->with('success', 'Connexion administrateur réussie.');
+}
+
 
 
     /**

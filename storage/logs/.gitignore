@@ -23,3 +23,10 @@ __pycache__/
 *.log
 .DS_Store
 Thumbs.db
+
+
+
+
+
+# chaine de connexion sdes identifiants de connexion a la bd sur neon
+# postgresql://neondb_owner:npg_3TdLXHjrCt7D@ep-misty-violet-b5lx9w8r-pooler.c-7.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require

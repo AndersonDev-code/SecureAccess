@@ -167,54 +167,45 @@ $request->merge([
     'rfid_uid' => $scannedUid
 ]);
 
-        DB::transaction(function () use ($request) {
-            
-            $photo = 'default.png';
-            if($request->filled('face_photo')){
-                $image = $request->input('face_photo');
+DB::transaction(function () use ($request) {
+    
+    $photo = 'default.png';
 
-                // verification du format base64
-                if(preg_match('/^data:image\/(\w+);base64,/', $image, $type)){
+    if ($request->filled('face_photo')) {
+        $image = $request->input('face_photo');
 
-                    // retirer le prefixe : data:image/jpeg;base64 
-                    $image = substr($image, strpos($image, ',') + 1);
-
-                    // decodage base64
-                    $image = base64_decode($image);
-
-                    // generation du nom de fichier unique
-                    $filename = 'employees/' .Str::uuid() . '.jpg';
-
-                    // sauvegarde de l'image dans le dossier public/storage/employees
-                    \Storage::disk('public')->put($filename, $image);
-
-                    // chemin enregistre dans la bd
-                    $photo = $filename;
-                }
-            }
-
-            $user = User::create([
-                'nom' => $request->nom,
-                'prenom' => $request->prenom,
-                'matricule' => $request->matricule,
-                'email' => $request->email,
-                'telephone' => $request->telephone,
-                'service' => $request->service,
-                'rfid_uid' => $request->rfid_uid,
-
-                'photo'=>$photo,
-                'face_encoding'=>null,
-                'is_active'=>true,
-                'password' => Hash::make('password'),
+        if (preg_match('/^data:image\/(\w+);base64,/', $image)) {
+            // Upload direct de l'image Base64 vers Cloudinary
+            $uploaded = cloudinary()->upload($image, [
+                'folder' => 'employees'
             ]);
- 
-            Schedule::create([
-                'heure_entree' => $request->heure_entree,
-                'heure_sortie' => $request->heure_sortie,
-                'tolerance' => $request->tolerance,
-                'user_id' => $user->id,
-            ]);
-        });
+
+            // URL sécurisée HTTPS renvoyée par Cloudinary
+            $photo = $uploaded->getSecurePath();
+        }
+    }
+
+    $user = User::create([
+        'nom' => $request->nom,
+        'prenom' => $request->prenom,
+        'matricule' => $request->matricule,
+        'email' => $request->email,
+        'telephone' => $request->telephone,
+        'service' => $request->service,
+        'rfid_uid' => $request->rfid_uid,
+        'photo' => $photo,
+        'face_encoding' => null,
+        'is_active' => true,
+        'password' => Hash::make('password'),
+    ]);
+
+    Schedule::create([
+        'heure_entree' => $request->heure_entree,
+        'heure_sortie' => $request->heure_sortie,
+        'tolerance' => $request->tolerance,
+        'user_id' => $user->id,
+    ]);
+});
 
         Cache::forget(
             'rfid_registration_' .
@@ -335,88 +326,17 @@ $request->merge([
         */
 
         if ($request->filled('face_photo')) {
-
             $image = $request->input('face_photo');
 
+            if (preg_match('/^data:image\/(\w+);base64,/', $image)) {
+            // Upload de la nouvelle photo vers Cloudinary
+            $uploaded = cloudinary()->upload($image, [
+                'folder' => 'employees'
+            ]);
 
-            /*
-            Vérification du format Base64
-            */
-
-            if (preg_match(
-                '/^data:image\/(\w+);base64,/',
-                $image,
-                $type
-            )) {
-
-
-                /*
-                Retirer :
-                data:image/jpeg;base64,
-                */
-
-                $image = substr(
-                    $image,
-                    strpos($image, ',') + 1
-                );
-
-
-                /*
-                Décodage Base64
-                */
-
-                $image = base64_decode($image);
-
-
-                /*
-                Vérification du décodage
-                */
-
-                if ($image !== false) {
-
-
-                    /*
-                    Génération d'un nom unique
-                    */
-
-                    $filename =
-                        'employees/' .
-                        Str::uuid() .
-                        '.jpg';
-
-
-                    /*
-                    Sauvegarde de la nouvelle photo
-                    */
-
-                    \Storage::disk('public')
-                        ->put($filename, $image);
-
-
-                    /*
-                    Supprimer l'ancienne photo
-                    si elle existe
-                    */
-
-                    if (
-                        $employee->photo &&
-                        $employee->photo !== 'default.png'
-                    ) {
-
-                        \Storage::disk('public')
-                            ->delete($employee->photo);
-                    }
-
-
-                    /*
-                    Nouveau chemin photo
-                    */
-
-                    $employeeData['photo'] =
-                        $filename;
-                }
-            }
+            $employeeData['photo'] = $uploaded->getSecurePath();
         }
+}
 
 
         /*

@@ -191,7 +191,7 @@
                                 @if($employee->photo)
 
                                     <img
-                                        src="{{ asset('storage/' . $employee->photo) }}"
+                                        src="{{ Str::startsWith($employee->photo, 'http') ? $employee->photo : asset('storage/' . $employee->photo) }}"
                                         alt="Photo de {{ $employee->nom }} {{ $employee->prenom }}"
                                         class="employee-photo"
                                     >

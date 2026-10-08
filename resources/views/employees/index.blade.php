@@ -1997,6 +1997,204 @@
 
 }
 
+/* =========================================================
+   RESPONSIVE FINAL — PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* En-tête de la page */
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 {
+        align-items: flex-start !important;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 > a {
+        width: 100%;
+        justify-content: center;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Toolbar employés */
+    .employees-toolbar {
+        padding: 16px;
+    }
+
+    .employees-title-row {
+        width: 100%;
+    }
+
+    .employees-tools {
+        width: 100%;
+    }
+
+    .employee-search {
+        width: 100%;
+    }
+
+    /* Tableau */
+    .employees-card .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .employees-card .attendance-table {
+        min-width: 760px;
+    }
+
+    /* Pagination */
+    .employees-pagination {
+        padding: 14px 16px;
+    }
+
+    /* Modal */
+    .employee-modal {
+        margin: 10px;
+        border-radius: 14px;
+    }
+
+    .employee-modal-header {
+        padding: 16px 18px;
+    }
+
+    .employee-profile-header {
+        padding: 20px;
+        gap: 14px;
+    }
+
+    .employee-profile-photo,
+    .employee-profile-placeholder {
+        width: 68px;
+        height: 68px;
+        border-radius: 14px;
+    }
+
+    .employee-profile-main h4 {
+        font-size: 16px;
+    }
+
+    .employee-profile-main p {
+        font-size: 10px;
+    }
+
+    .employee-profile-content {
+        padding: 20px;
+    }
+
+    .employee-modal-footer {
+        padding: 12px 16px;
+        gap: 8px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    /* Titre principal */
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 h3 {
+        font-size: 20px;
+    }
+
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 small {
+        font-size: 11px;
+    }
+
+    /* Carte employés */
+    .employees-toolbar {
+        padding: 14px;
+    }
+
+    .employees-title-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+
+    .employees-title-row {
+        gap: 9px;
+    }
+
+    .employees-toolbar .card-title-custom {
+        font-size: 13px;
+    }
+
+    /* Recherche */
+    .employee-search {
+        height: 38px;
+    }
+
+    .search-submit {
+        width: 32px;
+        height: 30px;
+    }
+
+    .refresh-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Pagination */
+    .pagination-number,
+    .pagination-arrow {
+        width: 28px;
+        height: 28px;
+    }
+
+    .custom-pagination {
+        gap: 3px;
+    }
+
+    /* Modal */
+    .employee-modal {
+        margin: 6px;
+        border-radius: 12px;
+    }
+
+    .employee-profile-header {
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .employee-profile-photo,
+    .employee-profile-placeholder {
+        width: 60px;
+        height: 60px;
+    }
+
+    .employee-profile-placeholder {
+        font-size: 24px;
+    }
+
+    .employee-profile-main h4 {
+        font-size: 15px;
+    }
+
+    .employee-profile-main p {
+        font-size: 9px;
+    }
+
+    .employee-profile-content {
+        padding: 18px;
+    }
+
+    .profile-item {
+        padding: 10px 12px;
+    }
+
+    .employee-modal-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .employee-modal-footer .btn {
+        width: 100%;
+    }
+
+}
+
 </style>
 
 @endpush

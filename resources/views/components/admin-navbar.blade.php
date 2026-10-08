@@ -83,10 +83,6 @@
 
             </div>
 
-            <i class="bi bi-chevron-down text-muted"
-               style="font-size:11px;">
-            </i>
-
         </div>
 
     </div>

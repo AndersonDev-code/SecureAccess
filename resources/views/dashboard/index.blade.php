@@ -155,14 +155,15 @@
                         </div>
 
                         <div class="stat-number text-danger">
-                            03
+                            {{ $fraudsToday }}
                         </div>
 
                         <div class="stat-change text-danger">
 
                             <i class="bi bi-exclamation-triangle"></i>
 
-                            2 nouvelles
+                            {{ $fraudsToday }}
+                            {{ $fraudsToday > 1 ? 'nouvelles alertes' : 'nouvelle alerte' }}
 
                         </div>
 
@@ -578,7 +579,7 @@
                     <span
                         class="badge bg-danger">
 
-                        03
+                           {{ $fraudsToday }}
 
                     </span>
 
@@ -666,15 +667,9 @@
                 @endforelse
 
 
-                    <button
-                        class="btn btn-light w-100 mt-3"
-                        style="font-size:11px;">
-
-                        Voir tout le journal
-
-                        <i class="bi bi-arrow-right ms-1"></i>
-
-                    </button>
+                <a href="{{ route('frauds.index') }}" class="btn btn-sm btn-outline-primary">
+                    Voir tout le journal
+                </a>
 
 
                 </div>

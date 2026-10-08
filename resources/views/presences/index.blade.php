@@ -22,13 +22,6 @@
         </div>
     </div>
 
-    <div>
-        <button class="btn btn-primary btn-sm">
-            <i class="bi bi-download me-1"></i>
-            Exporter
-        </button>
-    </div>
-
 </div>
 
 
@@ -623,6 +616,210 @@
         width: 14px;
         height: 14px;
     }
+
+
+
+    /* =========================================================
+   RESPONSIVE — PAGE PRÉSENCES
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* =====================================================
+       EN-TÊTE
+    ===================================================== */
+
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 {
+        align-items: flex-start !important;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 > div:last-child {
+        width: 100%;
+    }
+
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 > div:last-child .btn {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       FILTRES
+    ===================================================== */
+
+    .dashboard-card form .card-body-custom {
+        padding: 16px;
+    }
+
+    .dashboard-card form .form-label {
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+
+    .dashboard-card form .form-control,
+    .dashboard-card form .form-select {
+        min-height: 38px;
+    }
+
+
+    /* =====================================================
+       STATISTIQUES
+    ===================================================== */
+
+    .stat-card {
+        min-height: auto;
+    }
+
+
+    /* =====================================================
+       TABLEAU
+    ===================================================== */
+
+    .dashboard-card .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dashboard-card .attendance-table {
+        min-width: 720px;
+    }
+
+    .attendance-table th,
+    .attendance-table td {
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       HEADER DU TABLEAU
+    ===================================================== */
+
+    .card-header-custom {
+        gap: 12px;
+    }
+
+    .card-header-custom .live-badge {
+        flex-shrink: 0;
+    }
+
+
+    /* =====================================================
+       PAGINATION
+    ===================================================== */
+
+    .dashboard-card > .card-body-custom.border-top {
+        padding: 14px 16px;
+    }
+
+    .dashboard-card > .card-body-custom.border-top
+    > .d-flex.justify-content-between.align-items-center {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    .dashboard-card > .card-body-custom.border-top
+    .pagination {
+        margin-bottom: 0;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    /* =====================================================
+       TITRE
+    ===================================================== */
+
+    .content .page-title {
+        font-size: 20px;
+    }
+
+    .content .page-subtitle {
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       FILTRES
+    ===================================================== */
+
+    .dashboard-card form .card-body-custom {
+        padding: 14px;
+    }
+
+
+    /* =====================================================
+       STATISTIQUES
+    ===================================================== */
+
+    .stat-card {
+        padding: 14px !important;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    .stat-number {
+        font-size: 22px;
+    }
+
+    .stat-change {
+        font-size: 9px;
+    }
+
+    .stat-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       TABLEAU
+    ===================================================== */
+
+    .dashboard-card .attendance-table {
+        min-width: 680px;
+    }
+
+
+    /* =====================================================
+       HEADER TABLEAU
+    ===================================================== */
+
+    .card-header-custom {
+        padding: 14px 16px;
+    }
+
+    .card-title-custom {
+        font-size: 12px;
+    }
+
+    .card-header-custom .page-subtitle {
+        font-size: 9px;
+    }
+
+    .live-badge {
+        font-size: 8px;
+        padding: 4px 7px;
+    }
+
+
+    /* =====================================================
+       PAGINATION
+    ===================================================== */
+
+    .pagination .page-link {
+        font-size: 11px;
+        padding: 4px 7px;
+    }
+
+}
 </style>
 
 <script>

@@ -22,180 +22,7 @@
     </div>
 
 
-    {{-- RAPPORTS RAPIDES --}}
-    <div class="row g-3 mb-4">
-
-        <div class="col-xl-3 col-md-6">
-
-            <div class="stat-card">
-
-                <div class="d-flex justify-content-between align-items-start">
-
-                    <div>
-                        <div class="stat-label">
-                            Rapport du jour
-                        </div>
-
-                        <div class="fw-bold" style="font-size: 14px;">
-                            Présences quotidiennes
-                        </div>
-
-                        <div class="text-muted mt-1" style="font-size: 10px;">
-                            Entrées, sorties et retards
-                        </div>
-                    </div>
-
-                    <div
-                        class="stat-icon"
-                        style="background:#dbeafe;color:#2563eb;"
-                    >
-                        <i class="bi bi-calendar-day"></i>
-                    </div>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="btn btn-sm btn-light border mt-3 w-100"
-                >
-                    <i class="bi bi-file-earmark-pdf me-1"></i>
-                    Générer
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-xl-3 col-md-6">
-
-            <div class="stat-card">
-
-                <div class="d-flex justify-content-between align-items-start">
-
-                    <div>
-                        <div class="stat-label">
-                            Rapport hebdomadaire
-                        </div>
-
-                        <div class="fw-bold" style="font-size: 14px;">
-                            Synthèse de la semaine
-                        </div>
-
-                        <div class="text-muted mt-1" style="font-size: 10px;">
-                            Du lundi au dimanche
-                        </div>
-                    </div>
-
-                    <div
-                        class="stat-icon"
-                        style="background:#dcfce7;color:#16a34a;"
-                    >
-                        <i class="bi bi-calendar-week"></i>
-                    </div>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="btn btn-sm btn-light border mt-3 w-100"
-                >
-                    <i class="bi bi-file-earmark-pdf me-1"></i>
-                    Générer
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-xl-3 col-md-6">
-
-            <div class="stat-card">
-
-                <div class="d-flex justify-content-between align-items-start">
-
-                    <div>
-                        <div class="stat-label">
-                            Rapport mensuel
-                        </div>
-
-                        <div class="fw-bold" style="font-size: 14px;">
-                            Bilan du mois
-                        </div>
-
-                        <div class="text-muted mt-1" style="font-size: 10px;">
-                            Synthèse complète
-                        </div>
-                    </div>
-
-                    <div
-                        class="stat-icon"
-                        style="background:#fef3c7;color:#f59e0b;"
-                    >
-                        <i class="bi bi-calendar-month"></i>
-                    </div>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="btn btn-sm btn-light border mt-3 w-100"
-                >
-                    <i class="bi bi-file-earmark-pdf me-1"></i>
-                    Générer
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-xl-3 col-md-6">
-
-            <div class="stat-card">
-
-                <div class="d-flex justify-content-between align-items-start">
-
-                    <div>
-                        <div class="stat-label">
-                            Rapport personnel
-                        </div>
-
-                        <div class="fw-bold" style="font-size: 14px;">
-                            Fiche d'un employé
-                        </div>
-
-                        <div class="text-muted mt-1" style="font-size: 10px;">
-                            Historique individuel
-                        </div>
-                    </div>
-
-                    <div
-                        class="stat-icon"
-                        style="background:#e0f2fe;color:#0284c7;"
-                    >
-                        <i class="bi bi-person-vcard"></i>
-                    </div>
-
-                </div>
-
-                <button
-                    type="button"
-                    class="btn btn-sm btn-light border mt-3 w-100"
-                >
-                    <i class="bi bi-file-earmark-pdf me-1"></i>
-                    Générer
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    {{-- GÉNÉRATEUR --}}
+   
 
     {{-- GÉNÉRATEUR --}}
 <div class="dashboard-card mb-4">
@@ -1089,6 +916,168 @@
         border-color: var(--primary);
         box-shadow: 0 0 0 3px rgba(37, 99, 235, .08);
     }
+
+    /* =========================================================
+   RESPONSIVE — PAGE RAPPORTS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* En-tête de page */
+    .content > .d-flex.justify-content-between.align-items-center.mb-4 {
+        align-items: flex-start !important;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Carte générateur */
+    .dashboard-card {
+        border-radius: 12px;
+    }
+
+    .dashboard-card .card-header-custom {
+        padding: 16px;
+    }
+
+    .dashboard-card .card-body-custom {
+        padding: 16px;
+    }
+
+    /* Titres des cartes */
+    .card-title-custom {
+        font-size: 13px;
+    }
+
+    .card-header-custom .page-subtitle {
+        font-size: 10px;
+    }
+
+    /* Formulaire */
+    .report-label {
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+
+    .report-input {
+        min-height: 38px;
+        font-size: 12px;
+    }
+
+    /* Boutons du générateur */
+    .dashboard-card .btn {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    /* Prévisualisation */
+    .dashboard-card .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dashboard-card .attendance-table {
+        min-width: 680px;
+    }
+
+    .attendance-table th,
+    .attendance-table td {
+        white-space: nowrap;
+    }
+
+    /* Statistiques de prévisualisation */
+    .stat-card {
+        min-height: auto;
+    }
+
+    /* Historique des rapports */
+    .dashboard-card .table-responsive {
+        width: 100%;
+    }
+
+    /* Pagination */
+    .pagination {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    /* En-tête */
+    .content .page-title {
+        font-size: 20px;
+    }
+
+    .content .page-subtitle {
+        font-size: 10px;
+    }
+
+    /* Cartes */
+    .dashboard-card .card-header-custom {
+        padding: 14px 16px;
+    }
+
+    .dashboard-card .card-body-custom {
+        padding: 14px;
+    }
+
+    .card-title-custom {
+        font-size: 12px;
+    }
+
+    /* Formulaire */
+    .report-label {
+        font-size: 9px;
+    }
+
+    .report-input {
+        min-height: 37px;
+        font-size: 11px;
+    }
+
+    /* Boutons */
+    .dashboard-card .btn {
+        width: 100%;
+        font-size: 10px;
+    }
+
+    /* Statistiques */
+    .stat-card {
+        padding: 14px !important;
+    }
+
+    .stat-label {
+        font-size: 9px;
+    }
+
+    .stat-number {
+        font-size: 21px;
+    }
+
+    .stat-change {
+        font-size: 9px;
+    }
+
+    .stat-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    /* Table */
+    .dashboard-card .attendance-table {
+        min-width: 650px;
+    }
+
+    .attendance-table th,
+    .attendance-table td {
+        font-size: 10px;
+    }
+}
 
 </style>
 

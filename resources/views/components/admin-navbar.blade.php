@@ -1,6 +1,17 @@
 <header class="topbar">
 
-    <div>
+    {{-- Bouton menu mobile --}}
+    <button
+        type="button"
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        aria-label="Ouvrir le menu"
+    >
+        <i class="bi bi-list"></i>
+    </button>
+
+
+    <div class="topbar-title">
 
         <h1 class="page-title">
             Tableau de bord
@@ -38,7 +49,10 @@
 
         {{-- Notification --}}
 
-        <button class="notification btn p-0">
+        <button
+            type="button"
+            class="notification btn p-0"
+        >
 
             <i class="bi bi-bell"></i>
 
@@ -55,7 +69,6 @@
 
             <div class="admin-avatar">
                 PA
-
             </div>
 
             <div>
@@ -71,7 +84,8 @@
             </div>
 
             <i class="bi bi-chevron-down text-muted"
-               style="font-size:11px;"></i>
+               style="font-size:11px;">
+            </i>
 
         </div>
 

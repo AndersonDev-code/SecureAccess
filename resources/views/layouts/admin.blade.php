@@ -527,68 +527,227 @@
            RESPONSIVE
         ========================= */
 
-        @media(max-width: 992px) {
+        
+        /* =========================
+   RESPONSIVE
+========================= */
 
-            .sidebar {
-                width: 75px;
-            }
+/* ---------- TABLETTE ---------- */
 
-            .brand-name,
-            .brand-subtitle,
-            .sidebar-link span,
-            .menu-title,
-            .system-status {
-                display: none;
-            }
+@media (max-width: 1100px) {
 
-            .brand {
-                justify-content: center;
-                padding: 0;
-            }
+    .sidebar {
+        width: 220px;
+    }
 
-            .brand-icon {
-                margin: 0;
-            }
+    .main {
+        margin-left: 220px;
+    }
 
-            .sidebar-link {
-                justify-content: center;
-            }
+    .brand {
+        padding: 0 20px;
+    }
 
-            .main {
-                margin-left: 75px;
-            }
+    .sidebar-menu {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 
+    .sidebar-link {
+        font-size: 13px;
+        padding: 11px 12px;
+    }
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+    .content {
+        padding: 24px 20px;
+    }
+
+}
+
+
+/* ---------- PETITE TABLETTE ---------- */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 75px;
+    }
+
+    .brand {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .brand img {
+        width: 45px !important;
+        height: 45px;
+        object-fit: contain;
+    }
+
+    .brand-name,
+    .brand-subtitle,
+    .sidebar-link span,
+    .menu-title,
+    .system-status {
+        display: none;
+    }
+
+    .sidebar-link {
+        justify-content: center;
+        padding: 12px 8px;
+    }
+
+    .sidebar-link i {
+        font-size: 18px;
+    }
+
+    .main {
+        margin-left: 75px;
+    }
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+        .mobile-menu-toggle {
+            display: flex !important;
         }
 
-        @media(max-width: 768px) {
+    .sidebar {
+        width: 260px;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.12);
+    }
 
-            .sidebar {
-                display: none;
-            }
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
 
-            .main {
-                margin-left: 0;
-            }
+    .brand {
+        height: 70px;
+        justify-content: flex-start;
+        padding: 0 20px;
+    }
 
-            .content {
-                padding: 20px 15px;
-            }
+    .brand img {
+        width: 165px !important;
+        height: auto;
+    }
 
-            .topbar {
-                padding: 0 15px;
-            }
+    .brand-name,
+    .brand-subtitle,
+    .sidebar-link span,
+    .menu-title {
+        display: block;
+    }
 
-            .admin-profile {
-                border: none;
-            }
+    .sidebar-link {
+        justify-content: flex-start;
+        padding: 11px 13px;
+    }
 
-            .admin-name,
-            .admin-role {
-                display: none;
-            }
+    .sidebar-link i {
+        font-size: 17px;
+    }
 
-        }
+    .sidebar-menu {
+        padding: 15px 12px;
+    }
 
+    .sidebar-footer {
+        padding: 12px;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .topbar {
+        height: auto;
+        min-height: 70px;
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    .page-title {
+        font-size: 18px;
+    }
+
+    .page-subtitle {
+        font-size: 11px;
+    }
+
+    .topbar-actions {
+        gap: 8px;
+    }
+
+    .notification {
+        width: 36px;
+        height: 36px;
+    }
+
+    .admin-profile {
+        padding-left: 8px;
+        gap: 7px;
+    }
+
+    .admin-name,
+    .admin-role {
+        display: none;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+}
+
+
+/* ---------- PETIT MOBILE ---------- */
+
+@media (max-width: 480px) {
+
+    .topbar {
+        padding: 10px 12px;
+    }
+
+    .page-title {
+        font-size: 17px;
+    }
+
+    .page-subtitle {
+        font-size: 10px;
+    }
+
+    .admin-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .notification {
+        width: 34px;
+        height: 34px;
+    }
+
+    .content {
+        padding: 16px 12px;
+    }
+
+}
 
         /* pour le bouton de deconnexion */
         .logout-link {
@@ -605,6 +764,64 @@
             color: #dc3545 !important;
         }
 
+/* =========================
+   BOUTON MENU MOBILE
+========================= */
+
+.mobile-menu-toggle {
+    display: none !important;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle:hover {
+    background: #f9fafb;
+}
+
+/* =========================
+   OVERLAY MOBILE
+========================= */
+
+.mobile-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 999;
+        display: none;
+    }
+
+    .mobile-overlay.active {
+        display: block;
+    }
+
+}
+
+/* =========================
+   AFFICHAGE DU MENU MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+
+}
     </style>
 
     @stack('styles')
@@ -615,6 +832,7 @@
 
     @include('components.admin-sidebar')
 
+    <div class="mobile-overlay" id="mobileOverlay"></div>
     <main class="main">
 
         @include('components.admin-navbar')
@@ -625,10 +843,43 @@
 
 
     <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
-    @stack('scripts')
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+    const menuButton = document.getElementById('mobileMenuToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.getElementById('mobileOverlay');
+
+    if (!menuButton || !sidebar || !overlay) {
+        return;
+    }
+
+    menuButton.addEventListener('click', function () {
+
+        sidebar.classList.toggle('mobile-open');
+        overlay.classList.toggle('active');
+
+    });
+
+
+    overlay.addEventListener('click', function () {
+
+        sidebar.classList.remove('mobile-open');
+        overlay.classList.remove('active');
+
+    });
+
+});
+
+</script>
+
+
+@stack('scripts')
 
 </body>
 

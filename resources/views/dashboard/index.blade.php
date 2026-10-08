@@ -684,6 +684,12 @@
 
                 @endforelse
 
+                {{-- Pagination des fraudes du jour --}}
+                @if($frauds->hasPages())
+                    <div class="mt-3">
+                        {{ $frauds->links() }}
+                    </div>
+                @endif
 
                 <a href="{{ route('frauds.index') }}" class="btn btn-sm btn-outline-primary">
                     Voir tout le journal

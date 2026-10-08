@@ -41,9 +41,9 @@ class DashboardController extends Controller
         // =========================================================
 
         // 5 dernières alertes de fraude
-        $frauds = FraudLog::latest()
-            ->take(5)
-            ->get();
+        $frauds = FraudLog::whereDate('heure_fraude', today())
+        ->latest('heure_fraude')
+        ->paginate(3);
 
 
         // Nombre total de fraudes enregistrées

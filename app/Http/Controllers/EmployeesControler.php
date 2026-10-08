@@ -15,12 +15,45 @@ class EmployeesControler extends Controller
 
     // liste des employes
 
-    public function index()
-    {
-        $employees = User::latest()->paginate(10);
+    public function index(Request $request)
+{
+    $query = User::query();
 
-        return  view('employees.index', compact('employees'));
+    /*
+    |--------------------------------------------------------------------------
+    | RECHERCHE EMPLOYÉ
+    |--------------------------------------------------------------------------
+    */
+
+    if ($request->filled('search')) {
+
+        $search = $request->search;
+
+        $query->where(function ($q) use ($search) {
+
+            $q->where('nom', 'like', '%' . $search . '%')
+              ->orWhere('prenom', 'like', '%' . $search . '%')
+              ->orWhere('matricule', 'like', '%' . $search . '%')
+              ->orWhere('email', 'like', '%' . $search . '%')
+              ->orWhere('service', 'like', '%' . $search . '%')
+              ->orWhere('rfid_uid', 'like', '%' . $search . '%');
+
+        });
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | LISTE + PAGINATION
+    |--------------------------------------------------------------------------
+    */
+
+    $employees = $query
+        ->latest()
+        ->paginate(10)
+        ->withQueryString();
+
+    return view('employees.index', compact('employees'));
+}
 
     //formulaire d'ajout d'employe
     public function create()

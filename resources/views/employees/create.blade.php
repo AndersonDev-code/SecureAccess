@@ -37,14 +37,6 @@
 
         </div>
 
-
-       <a
-    href="{{ route('employees.index') }}"
-    class="btn btn-light border">
-    <i class="bi bi-x-lg me-1"></i>
-    Annuler
-</a>
-
     </div>
 
 

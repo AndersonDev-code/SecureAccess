@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="content">
+<div class="content rapports-page">
 
     {{-- EN-TÊTE --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -894,194 +894,289 @@
 
 </div>
 
+
 @push('styles')
 
 <style>
 
-    .report-label {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 7px;
+/* =========================================================
+   PAGE RAPPORTS — DESIGN ET RESPONSIVE
+========================================================= */
+
+.rapports-page .dashboard-card {
+    overflow: hidden;
+}
+
+.rapports-page .report-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.rapports-page .report-input {
+    min-height: 38px;
+    font-size: 11px;
+    border-color: var(--border);
+    border-radius: 8px;
+}
+
+.rapports-page .report-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .08);
+}
+
+/* Boutons */
+.rapports-page .btn {
+    min-height: 38px;
+}
+
+/* Tables */
+.rapports-page .attendance-table {
+    margin-bottom: 0;
+}
+
+.rapports-page .attendance-table th,
+.rapports-page .attendance-table td {
+    border-color: var(--border);
+    white-space: nowrap;
+}
+
+/* Statistiques */
+.rapports-page .stat-card {
+    min-height: 110px;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .rapports-page .stat-card {
+        min-height: 105px;
     }
 
-    .report-input {
-        min-height: 40px;
-        font-size: 12px;
-        border-color: var(--border);
-        border-radius: 8px;
-    }
+}
 
-    .report-input:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, .08);
-    }
 
-    /* =========================================================
-   RESPONSIVE — PAGE RAPPORTS
-   ========================================================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
-    /* En-tête de page */
-    .content > .d-flex.justify-content-between.align-items-center.mb-4 {
-        align-items: flex-start !important;
+    /* En-tête */
+    .rapports-page
+    > .d-flex.justify-content-between.align-items-center.mb-4 {
         flex-direction: column;
+        align-items: flex-start !important;
         gap: 12px;
     }
 
-    /* Carte générateur */
-    .dashboard-card {
+
+    /* Cartes */
+    .rapports-page .dashboard-card {
         border-radius: 12px;
+        margin-bottom: 16px !important;
     }
 
-    .dashboard-card .card-header-custom {
+    .rapports-page .card-header-custom {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .rapports-page .card-body-custom {
         padding: 16px;
     }
 
-    .dashboard-card .card-body-custom {
-        padding: 16px;
-    }
 
-    /* Titres des cartes */
-    .card-title-custom {
+    /* Titres */
+    .rapports-page .card-title-custom {
         font-size: 13px;
     }
 
-    .card-header-custom .page-subtitle {
-        font-size: 10px;
+    .rapports-page .card-header-custom .text-muted {
+        font-size: 10px !important;
     }
 
+
     /* Formulaire */
-    .report-label {
+    .rapports-page .report-label {
         font-size: 10px;
         margin-bottom: 5px;
     }
 
-    .report-input {
-        min-height: 38px;
-        font-size: 12px;
-    }
-
-    /* Boutons du générateur */
-    .dashboard-card .btn {
+    .rapports-page .report-input {
         min-height: 38px;
         font-size: 11px;
     }
 
-    /* Prévisualisation */
-    .dashboard-card .table-responsive {
+
+    /* Boutons */
+    .rapports-page form .btn {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+
+    /*
+     * Les deux boutons du générateur passent
+     * l'un sous l'autre sur petit écran.
+     */
+    .rapports-page form .d-flex.justify-content-end {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .rapports-page form .d-flex.justify-content-end .btn {
+        width: 100%;
+    }
+
+
+    /* Tables */
+    .rapports-page .table-responsive {
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 
-    .dashboard-card .attendance-table {
-        min-width: 680px;
+    .rapports-page .attendance-table {
+        min-width: 720px;
     }
 
-    .attendance-table th,
-    .attendance-table td {
+    .rapports-page .attendance-table th,
+    .rapports-page .attendance-table td {
         white-space: nowrap;
     }
 
-    /* Statistiques de prévisualisation */
-    .stat-card {
+
+    /* Prévisualisation */
+    .rapports-page .stat-card {
         min-height: auto;
     }
 
-    /* Historique des rapports */
-    .dashboard-card .table-responsive {
-        width: 100%;
+
+    /* Historique */
+    .rapports-page .table-responsive {
+        margin-bottom: 0;
     }
 
-    /* Pagination */
-    .pagination {
-        flex-wrap: wrap;
-    }
 }
 
 
 /* =========================================================
    TRÈS PETITS ÉCRANS
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 480px) {
 
     /* En-tête */
-    .content .page-title {
+    .rapports-page .page-title {
         font-size: 20px;
     }
 
-    .content .page-subtitle {
+    .rapports-page .page-subtitle {
         font-size: 10px;
     }
 
+
     /* Cartes */
-    .dashboard-card .card-header-custom {
-        padding: 14px 16px;
+    .rapports-page .dashboard-card {
+        border-radius: 10px;
     }
 
-    .dashboard-card .card-body-custom {
+    .rapports-page .card-header-custom {
         padding: 14px;
     }
 
-    .card-title-custom {
+    .rapports-page .card-body-custom {
+        padding: 14px;
+    }
+
+
+    /* Titres */
+    .rapports-page .card-title-custom {
         font-size: 12px;
     }
 
+
     /* Formulaire */
-    .report-label {
+    .rapports-page .report-label {
         font-size: 9px;
     }
 
-    .report-input {
+    .rapports-page .report-input {
         min-height: 37px;
-        font-size: 11px;
-    }
-
-    /* Boutons */
-    .dashboard-card .btn {
-        width: 100%;
         font-size: 10px;
     }
 
+
+    /* Boutons */
+    .rapports-page form .btn {
+        min-height: 37px;
+        font-size: 10px;
+    }
+
+
     /* Statistiques */
-    .stat-card {
+    .rapports-page .stat-card {
         padding: 14px !important;
     }
 
-    .stat-label {
+    .rapports-page .stat-label {
         font-size: 9px;
     }
 
-    .stat-number {
+    .rapports-page .stat-number {
         font-size: 21px;
     }
 
-    .stat-change {
+    .rapports-page .stat-change {
         font-size: 9px;
     }
 
-    .stat-icon {
+    .rapports-page .stat-icon {
         width: 34px;
         height: 34px;
         font-size: 14px;
     }
 
-    /* Table */
-    .dashboard-card .attendance-table {
-        min-width: 650px;
+
+    /* Tables */
+    .rapports-page .attendance-table {
+        min-width: 680px;
     }
 
-    .attendance-table th,
-    .attendance-table td {
+    .rapports-page .attendance-table th {
+        font-size: 9px;
+    }
+
+    .rapports-page .attendance-table td {
         font-size: 10px;
     }
+
+
+    /* Badge */
+    .rapports-page .badge {
+        font-size: 8px !important;
+    }
+
+
+    /* Action PDF */
+    .rapports-page .attendance-table .btn {
+        width: auto;
+        min-height: 32px;
+        font-size: 9px;
+    }
+
 }
 
 </style>
 
 @endpush
+
 
 @push('scripts')
 <script>

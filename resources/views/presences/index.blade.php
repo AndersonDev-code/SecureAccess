@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="content">
+<div class="content presences-page">
 
 {{-- =========================
      EN-TÊTE DE PAGE
@@ -602,116 +602,163 @@
 
 </div>
 
+
 <style>
-    .pagination {
-        margin-bottom: 0;
+/* =========================================================
+   PAGE PRÉSENCES
+========================================================= */
+
+.presences-page .dashboard-card {
+    overflow: hidden;
+}
+
+/* Filtres */
+
+.presences-page .form-label {
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.presences-page .form-control,
+.presences-page .form-select {
+    min-height: 38px;
+}
+
+.presences-page .input-group-text {
+    border-color: var(--border);
+}
+
+/* Statistiques */
+
+.presences-page .stat-card {
+    min-height: 120px;
+}
+
+/* Tableau */
+
+.presences-page .attendance-table {
+    margin-bottom: 0;
+}
+
+.presences-page .attendance-table th,
+.presences-page .attendance-table td {
+    border-color: var(--border);
+    white-space: nowrap;
+}
+
+/* Pagination */
+
+.presences-page .pagination {
+    margin-bottom: 0;
+}
+
+.presences-page .pagination .page-link {
+    font-size: 11px;
+    padding: 5px 9px;
+}
+
+.presences-page .pagination svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .presences-page .stat-card {
+        min-height: 110px;
     }
 
-    .pagination .page-link {
-        font-size: 12px;
-        padding: 5px 9px;
-    }
-
-    .pagination svg {
-        width: 14px;
-        height: 14px;
-    }
+}
 
 
-
-    /* =========================================================
-   RESPONSIVE — PAGE PRÉSENCES
+/* =========================================================
+   MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* =====================================================
-       EN-TÊTE
-    ===================================================== */
+    /* En-tête */
 
-    .content > .d-flex.justify-content-between.align-items-center.mb-4 {
+    .presences-page
+    > .d-flex.justify-content-between.align-items-center.mb-4 {
         align-items: flex-start !important;
         flex-direction: column;
-        gap: 14px;
-    }
-
-    .content > .d-flex.justify-content-between.align-items-center.mb-4 > div:last-child {
-        width: 100%;
-    }
-
-    .content > .d-flex.justify-content-between.align-items-center.mb-4 > div:last-child .btn {
-        width: 100%;
+        gap: 12px;
     }
 
 
-    /* =====================================================
-       FILTRES
-    ===================================================== */
+    /* Filtres */
 
-    .dashboard-card form .card-body-custom {
+    .presences-page .dashboard-card form .card-body-custom {
         padding: 16px;
     }
 
-    .dashboard-card form .form-label {
-        font-size: 11px;
+    .presences-page .form-label {
+        font-size: 10px;
         margin-bottom: 5px;
     }
 
-    .dashboard-card form .form-control,
-    .dashboard-card form .form-select {
+    .presences-page .form-control,
+    .presences-page .form-select {
         min-height: 38px;
+        font-size: 11px;
+    }
+
+    .presences-page form .btn {
+        min-height: 38px;
+        font-size: 11px;
     }
 
 
-    /* =====================================================
-       STATISTIQUES
-    ===================================================== */
+    /* Statistiques */
 
-    .stat-card {
+    .presences-page .stat-card {
         min-height: auto;
     }
 
 
-    /* =====================================================
-       TABLEAU
-    ===================================================== */
+    /* Tableau */
 
-    .dashboard-card .table-responsive {
+    .presences-page .table-responsive {
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 
-    .dashboard-card .attendance-table {
+    .presences-page .attendance-table {
         min-width: 720px;
     }
 
-    .attendance-table th,
-    .attendance-table td {
+    .presences-page .attendance-table th,
+    .presences-page .attendance-table td {
         white-space: nowrap;
     }
 
 
-    /* =====================================================
-       HEADER DU TABLEAU
-    ===================================================== */
+    /* En-tête tableau */
 
-    .card-header-custom {
+    .presences-page .card-header-custom {
         gap: 12px;
     }
 
-    .card-header-custom .live-badge {
+    .presences-page .live-badge {
         flex-shrink: 0;
     }
 
 
-    /* =====================================================
-       PAGINATION
-    ===================================================== */
+    /* Pagination */
 
+    .presences-page
     .dashboard-card > .card-body-custom.border-top {
         padding: 14px 16px;
     }
 
+    .presences-page
     .dashboard-card > .card-body-custom.border-top
     > .d-flex.justify-content-between.align-items-center {
         flex-direction: column;
@@ -719,103 +766,114 @@
         gap: 12px;
     }
 
-    .dashboard-card > .card-body-custom.border-top
-    .pagination {
-        margin-bottom: 0;
+    .presences-page .pagination {
         flex-wrap: wrap;
     }
 
 }
 
 
+/* =========================================================
+   PETITS ÉCRANS
+========================================================= */
+
 @media (max-width: 480px) {
 
-    /* =====================================================
-       TITRE
-    ===================================================== */
-
-    .content .page-title {
+    .presences-page .page-title {
         font-size: 20px;
     }
 
-    .content .page-subtitle {
+    .presences-page .page-subtitle {
         font-size: 10px;
     }
 
 
-    /* =====================================================
-       FILTRES
-    ===================================================== */
+    /* Filtres */
 
-    .dashboard-card form .card-body-custom {
+    .presences-page .dashboard-card form .card-body-custom {
         padding: 14px;
     }
 
-
-    /* =====================================================
-       STATISTIQUES
-    ===================================================== */
-
-    .stat-card {
-        padding: 14px !important;
-    }
-
-    .stat-label {
-        font-size: 10px;
-    }
-
-    .stat-number {
-        font-size: 22px;
-    }
-
-    .stat-change {
+    .presences-page .form-label {
         font-size: 9px;
     }
 
-    .stat-icon {
+    .presences-page .form-control,
+    .presences-page .form-select {
+        min-height: 37px;
+        font-size: 10px;
+    }
+
+    .presences-page form .btn {
+        min-height: 37px;
+        font-size: 10px;
+    }
+
+
+    /* Statistiques */
+
+    .presences-page .stat-card {
+        padding: 14px !important;
+    }
+
+    .presences-page .stat-label {
+        font-size: 10px;
+    }
+
+    .presences-page .stat-number {
+        font-size: 22px;
+    }
+
+    .presences-page .stat-change {
+        font-size: 9px;
+    }
+
+    .presences-page .stat-icon {
         width: 34px;
         height: 34px;
         font-size: 14px;
     }
 
 
-    /* =====================================================
-       TABLEAU
-    ===================================================== */
+    /* Tableau */
 
-    .dashboard-card .attendance-table {
+    .presences-page .attendance-table {
         min-width: 680px;
     }
 
+    .presences-page .attendance-table th {
+        font-size: 10px;
+    }
 
-    /* =====================================================
-       HEADER TABLEAU
-    ===================================================== */
+    .presences-page .attendance-table td {
+        font-size: 10px;
+    }
 
-    .card-header-custom {
+
+    /* En-tête tableau */
+
+    .presences-page .card-header-custom {
         padding: 14px 16px;
     }
 
-    .card-title-custom {
+    .presences-page .card-title-custom {
         font-size: 12px;
     }
 
-    .card-header-custom .page-subtitle {
+    .presences-page .card-header-custom .page-subtitle {
         font-size: 9px;
     }
 
-    .live-badge {
+    .presences-page .live-badge {
         font-size: 8px;
         padding: 4px 7px;
     }
 
 
-    /* =====================================================
-       PAGINATION
-    ===================================================== */
+    /* Pagination */
 
-    .pagination .page-link {
-        font-size: 11px;
+    .presences-page .pagination .page-link {
+        font-size: 10px;
         padding: 4px 7px;
     }
 

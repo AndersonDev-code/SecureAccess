@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="content">
+<div class="content employee-edit-page">
 
     {{-- EN-TÊTE --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -957,6 +957,235 @@
 </div>
 
 @endsection
+
+<style>
+/* =========================================================
+   PAGE MODIFICATION EMPLOYÉ — RESPONSIVE
+========================================================= */
+
+.employee-edit-page .dashboard-card {
+    overflow: hidden;
+}
+
+.employee-edit-page .card-header-custom {
+    min-height: 64px;
+}
+
+.employee-edit-page .form-label {
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.employee-edit-page .form-text {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.employee-edit-page .input-group-text {
+    background: #f9fafb;
+    border-color: var(--border);
+    color: var(--muted);
+}
+
+.employee-edit-page #facePreview {
+    max-width: 180px;
+    max-height: 180px;
+}
+
+.employee-edit-page #profilePreview {
+    overflow: hidden;
+}
+
+.employee-edit-page .action-card .btn {
+    min-height: 40px;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .employee-edit-page .col-xl-8,
+    .employee-edit-page .col-xl-4 {
+        width: 100%;
+    }
+
+    .employee-edit-page .col-md-6,
+    .employee-edit-page .col-md-5,
+    .employee-edit-page .col-md-7,
+    .employee-edit-page .col-md-8,
+    .employee-edit-page .col-md-4 {
+        width: 100%;
+    }
+
+    .employee-edit-page #facePreview {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .employee-edit-page {
+        padding-bottom: 20px;
+    }
+
+    .employee-edit-page
+    > .d-flex.justify-content-between.align-items-center.mb-4 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 14px;
+    }
+
+    .employee-edit-page
+    > .d-flex.justify-content-between.align-items-center.mb-4
+    > div {
+        width: 100%;
+    }
+
+    .employee-edit-page
+    > .d-flex.justify-content-between.align-items-center.mb-4
+    > a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .employee-edit-page .dashboard-card {
+        margin-bottom: 16px !important;
+        border-radius: 12px;
+    }
+
+    .employee-edit-page .card-header-custom {
+        padding: 15px 16px;
+    }
+
+    .employee-edit-page .card-body-custom {
+        padding: 16px;
+    }
+
+    .employee-edit-page .card-title-custom {
+        font-size: 13px;
+    }
+
+    .employee-edit-page .form-label {
+        font-size: 10px;
+    }
+
+    .employee-edit-page .form-control,
+    .employee-edit-page .form-select {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    .employee-edit-page .input-group-text {
+        font-size: 12px;
+    }
+
+    /* RFID */
+
+    .employee-edit-page #scanRfid {
+        width: 100%;
+        min-height: 38px;
+    }
+
+    /* BIOMÉTRIE */
+
+    .employee-edit-page #facePreview {
+        width: 160px !important;
+        height: 160px !important;
+    }
+
+    .employee-edit-page #captureFace {
+        width: 100%;
+        min-height: 40px;
+    }
+
+    /* RÉSUMÉ */
+
+    .employee-edit-page #profilePreview {
+        width: 72px !important;
+        height: 72px !important;
+    }
+
+    /* ACTIONS */
+
+    .employee-edit-page .dashboard-card .btn {
+        min-height: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .employee-edit-page .page-title {
+        font-size: 20px;
+    }
+
+    .employee-edit-page .page-subtitle {
+        font-size: 10px;
+    }
+
+    .employee-edit-page .dashboard-card {
+        border-radius: 10px;
+    }
+
+    .employee-edit-page .card-header-custom {
+        padding: 13px 14px;
+    }
+
+    .employee-edit-page .card-body-custom {
+        padding: 14px;
+    }
+
+    .employee-edit-page .card-title-custom {
+        font-size: 12px;
+    }
+
+    .employee-edit-page .form-label {
+        font-size: 9px;
+    }
+
+    .employee-edit-page .form-control,
+    .employee-edit-page .form-select {
+        min-height: 37px;
+        font-size: 10px;
+    }
+
+    .employee-edit-page .form-text {
+        font-size: 9px;
+    }
+
+    .employee-edit-page #facePreview {
+        width: 145px !important;
+        height: 145px !important;
+    }
+
+    .employee-edit-page #facePreview i {
+        font-size: 38px !important;
+    }
+
+    .employee-edit-page .alert {
+        font-size: 10px;
+    }
+
+}
+</style>
 
 
 @push('scripts')

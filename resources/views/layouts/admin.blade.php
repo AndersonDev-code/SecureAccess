@@ -69,17 +69,19 @@
         ========================= */
 
         .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 255px;
-            height: 100vh;
-            background: var(--sidebar);
-            color: white;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-        }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 255px;
+    height: 100vh;
+    background: var(--sidebar);
+    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
         .brand {
             height: 75px;
@@ -116,6 +118,7 @@
         .sidebar-menu {
             padding: 20px 12px;
             flex: 1;
+            min-height: 0;
         }
 
         .menu-title {
@@ -159,6 +162,23 @@
             padding: 15px;
             border-top: 1px solid rgba(255,255,255,.08);
         }
+
+        .sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.35);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.55);
+}
 
         .system-status {
             background: #1f2937;
@@ -629,6 +649,7 @@
         transform: translateX(-100%);
         transition: transform 0.25s ease;
         box-shadow: 8px 0 25px rgba(0, 0, 0, 0.12);
+        overflow-y: auto;
     }
 
     .sidebar.mobile-open {

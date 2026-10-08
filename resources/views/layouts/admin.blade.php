@@ -842,7 +842,7 @@
    AFFICHAGE DU MENU MOBILE
 ========================= */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
     .mobile-menu-toggle {
         display: flex !important;
@@ -865,7 +865,7 @@
 
 .sidebar-menu::-webkit-scrollbar-thumb:hover {
     background: rgba(156, 163, 175, 0.55);
-}
+} */
 
 
 /* =========================

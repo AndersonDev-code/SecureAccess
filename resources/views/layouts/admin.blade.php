@@ -981,6 +981,159 @@
     }
 
 }
+
+
+
+/* =========================
+   PANNEAU NOTIFICATIONS
+========================= */
+
+.notification-menu {
+    width: 360px;
+    max-width: calc(100vw - 24px);
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* En-tête */
+.notification-header {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Liste */
+.notification-list {
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+/* Une notification */
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s ease;
+}
+
+.notification-item:hover {
+    background: #f8fafc;
+}
+
+/* Icône */
+.notification-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(220, 38, 38, 0.10);
+    color: var(--danger);
+}
+
+.notification-icon i {
+    font-size: 15px;
+}
+
+/* Contenu */
+.notification-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.notification-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.notification-description {
+    margin-top: 3px;
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.4;
+
+    /* évite qu'une description très longue casse la navbar */
+    word-break: break-word;
+}
+
+.notification-time {
+    margin-top: 5px;
+    font-size: 9px;
+    color: var(--muted);
+}
+
+/* Aucune alerte */
+.notification-empty {
+    padding: 28px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: left;
+    color: var(--muted);
+}
+
+.notification-empty > i {
+    font-size: 22px;
+    color: var(--success);
+}
+
+.notification-empty .fw-semibold {
+    font-size: 11px;
+    color: var(--text);
+}
+
+.notification-empty .text-muted {
+    font-size: 10px;
+}
+
+/* Pied du panneau */
+.notification-footer {
+    padding: 10px 16px;
+    background: #fafafa;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.notification-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.notification-footer a:hover {
+    color: var(--primary-dark);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    .notification-menu {
+        width: calc(100vw - 20px);
+        max-width: none;
+    }
+
+    .notification-list {
+        max-height: 300px;
+    }
+}
     </style>
 
     @stack('styles')

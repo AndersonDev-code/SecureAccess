@@ -679,7 +679,7 @@
 
                 <div class="text-center text-muted py-4">
                     <i class="bi bi-shield-check me-1"></i>
-                    Aucune fraude enregistrée.
+                    Aucune fraude enregistrée Aujourd'hui.
                 </div>
 
                 @endforelse

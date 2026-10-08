@@ -545,6 +545,169 @@
     color: #212529;
 }
 
+
+/* =========================================================
+   RESPONSIVE — PAGE PARAMÈTRES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Cartes */
+    .dashboard-card {
+        border-radius: 12px;
+    }
+
+    .dashboard-card .card-header-custom {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .dashboard-card .card-body-custom {
+        padding: 16px;
+    }
+
+    /* Titres */
+    .card-title-custom {
+        font-size: 13px;
+    }
+
+    .card-header-custom .page-subtitle {
+        font-size: 10px;
+    }
+
+    /* Badge compte actif */
+    .live-badge {
+        font-size: 9px;
+        padding: 5px 8px;
+    }
+
+    /* Informations du profil */
+    .info-label {
+        font-size: 9px;
+    }
+
+    .info-value {
+        font-size: 12px;
+        word-break: break-word;
+    }
+
+    /* Champs */
+    .form-label-custom {
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    /* Boutons */
+    .dashboard-card .btn {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    /* Édition du profil */
+    #profile-edit .row,
+    #password-edit .row {
+        --bs-gutter-y: 1rem;
+    }
+
+    /* Boutons d'action */
+    #profile-edit .mt-4,
+    #password-edit .mt-4 {
+        flex-wrap: wrap;
+    }
+
+    /* Sécurité */
+    .password-info {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    /* Cartes */
+    .dashboard-card {
+        border-radius: 10px;
+    }
+
+    .dashboard-card .card-header-custom {
+        padding: 14px;
+    }
+
+    .dashboard-card .card-body-custom {
+        padding: 14px;
+    }
+
+    /* Titres */
+    .card-title-custom {
+        font-size: 12px;
+    }
+
+    .card-header-custom .page-subtitle {
+        font-size: 9px;
+    }
+
+    /* Badge */
+    .live-badge {
+        font-size: 8px;
+        padding: 4px 7px;
+    }
+
+    /* Informations */
+    .info-label {
+        font-size: 8px;
+    }
+
+    .info-value {
+        font-size: 11px;
+    }
+
+    /* Formulaire */
+    .form-label-custom {
+        font-size: 9px;
+    }
+
+    .form-control {
+        min-height: 37px;
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+
+    /* Boutons */
+    #profile-view .btn,
+    #password-view .btn,
+    #profile-edit .btn,
+    #password-edit .btn {
+        width: 100%;
+        font-size: 10px;
+    }
+
+    /* Boutons Enregistrer / Annuler */
+    #profile-edit .mt-4,
+    #password-edit .mt-4 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px !important;
+    }
+
+    /* Icône œil */
+    .password-toggle {
+        right: 8px;
+    }
+
+    /* Message de succès */
+    .alert {
+        font-size: 10px !important;
+    }
+}
 </style>
 
 

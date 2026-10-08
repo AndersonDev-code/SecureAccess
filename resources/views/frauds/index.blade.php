@@ -569,6 +569,170 @@
 
 }
 
+
+/* =========================================================
+   RESPONSIVE — JOURNAL DES FRAUDES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* En-tête */
+    .dashboard-card > .card-header-custom {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+
+    .fraud-badge {
+        font-size: 9px;
+        padding: 5px 9px;
+    }
+
+    /* Zone des filtres */
+    .dashboard-card > .card-body-custom.border-bottom {
+        padding: 16px;
+    }
+
+    .form-label-custom {
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+
+    .form-control,
+    .form-select {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    /* Bouton filtrer */
+    .dashboard-card form .btn {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    /* Tableau */
+    .fraud-table {
+        min-width: 850px;
+    }
+
+    .fraud-table th,
+    .fraud-table td {
+        white-space: nowrap;
+    }
+
+    .fraud-table th {
+        font-size: 10px;
+    }
+
+    .fraud-table td {
+        font-size: 11px;
+    }
+
+    .fraud-type {
+        font-size: 9px;
+    }
+
+    .rfid-code {
+        font-size: 9px;
+    }
+
+    /* Pagination */
+    .dashboard-card > .card-body-custom.border-top {
+        padding: 14px 16px;
+    }
+
+    .dashboard-card > .card-body-custom.border-top
+    > .d-flex.justify-content-between.align-items-center {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    .dashboard-card > .card-body-custom.border-top .pagination {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    /* En-tête */
+    .card-title-custom {
+        font-size: 12px;
+    }
+
+    .page-subtitle {
+        font-size: 9px;
+    }
+
+    .fraud-badge {
+        font-size: 8px;
+        padding: 4px 8px;
+    }
+
+    /* Filtres */
+    .dashboard-card > .card-body-custom.border-bottom {
+        padding: 14px;
+    }
+
+    .form-label-custom {
+        font-size: 9px;
+    }
+
+    .form-control,
+    .form-select {
+        min-height: 37px;
+        font-size: 10px;
+    }
+
+    .dashboard-card form .btn {
+        min-height: 37px;
+        font-size: 10px;
+    }
+
+    /* Tableau */
+    .fraud-table {
+        min-width: 800px;
+    }
+
+    .fraud-table th {
+        font-size: 9px;
+    }
+
+    .fraud-table td {
+        font-size: 10px;
+    }
+
+    .employee-name {
+        font-size: 10px;
+    }
+
+    .employee-service {
+        font-size: 9px;
+    }
+
+    .fraud-type {
+        font-size: 8px;
+    }
+
+    .rfid-code {
+        font-size: 8px;
+    }
+
+    /* Pagination */
+    .dashboard-card > .card-body-custom.border-top {
+        padding: 12px 14px;
+    }
+
+    .pagination .page-link {
+        font-size: 10px;
+        padding: 4px 7px;
+    }
+}
 </style>
 
 @endsection

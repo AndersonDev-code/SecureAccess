@@ -866,6 +866,121 @@
 .sidebar-menu::-webkit-scrollbar-thumb:hover {
     background: rgba(156, 163, 175, 0.55);
 }
+
+
+/* =========================
+   DESIGN SYSTEM COMMUN
+========================= */
+
+/* Boutons */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+/* Champs */
+.form-control,
+.form-select {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--text);
+    min-height: 38px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+/* Labels */
+.form-label,
+.form-label-custom,
+.report-label,
+.info-label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* Alertes */
+.alert {
+    border-radius: 9px;
+    border: 1px solid transparent;
+    font-size: 11px;
+}
+
+/* Pagination */
+.pagination .page-link {
+    border-radius: 7px !important;
+    font-size: 11px;
+    color: var(--text);
+    margin: 0 2px;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Tables */
+.table-responsive {
+    width: 100%;
+}
+
+.attendance-table {
+    margin-bottom: 0;
+}
+
+.attendance-table th,
+.attendance-table td {
+    border-color: var(--border);
+}
+
+/* Cartes */
+.dashboard-card,
+.stat-card {
+    box-shadow: none;
+}
+
+.dashboard-card {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Texte secondaire */
+.text-muted {
+    color: var(--muted) !important;
+}
+
+/* Petits écrans */
+@media (max-width: 480px) {
+
+    .btn {
+        font-size: 10px;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 10px;
+    }
+
+    .alert {
+        font-size: 10px;
+    }
+
+}
     </style>
 
     @stack('styles')

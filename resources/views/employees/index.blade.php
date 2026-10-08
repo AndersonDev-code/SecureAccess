@@ -2195,6 +2195,16 @@
 
 }
 
+.employee-matricule,
+.employee-service-name,
+.rfid-code {
+    white-space: nowrap;
+}
+
+.employee-name {
+    white-space: nowrap;
+}
+
 </style>
 
 @endpush

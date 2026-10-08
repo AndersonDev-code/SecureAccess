@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="content">
+<div class="content employee-create-page">
 
     {{-- EN-TÊTE --}}
 
@@ -15,7 +15,7 @@
 
             <div class="d-flex align-items-center gap-2 mb-1">
 
-                <a href="#"
+                <a href="{{ route('employees.index') }}"
                    class="text-muted">
 
                     <i class="bi bi-arrow-left"></i>
@@ -38,15 +38,12 @@
         </div>
 
 
-        <button
-            type="button"
-            class="btn btn-light border">
-
-            <i class="bi bi-x-lg me-1"></i>
-
-            Annuler
-
-        </button>
+       <a
+    href="{{ route('employees.index') }}"
+    class="btn btn-light border">
+    <i class="bi bi-x-lg me-1"></i>
+    Annuler
+</a>
 
     </div>
 
@@ -845,13 +842,12 @@
                         </button>
 
 
-                        <button
-                            type="button"
-                            class="btn btn-light border w-100">
-
-                            Annuler
-
-                        </button>
+               <a
+    href="{{ route('employees.index') }}"
+    class="btn btn-light border w-100">
+    <i class="bi bi-x-lg me-1"></i>
+    Annuler
+</a>
 
                     </div>
 
@@ -866,6 +862,245 @@
 </div>
 
 @endsection
+
+
+<style>
+/* =========================================================
+   PAGE AJOUT EMPLOYÉ — RESPONSIVE
+========================================================= */
+
+.employee-create-page .dashboard-card {
+    overflow: hidden;
+}
+
+.employee-create-page .card-header-custom {
+    min-height: 64px;
+}
+
+.employee-create-page .form-label {
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.employee-create-page .form-text {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.employee-create-page .input-group-text {
+    background: #f9fafb;
+    border-color: var(--border);
+    color: var(--muted);
+}
+
+.employee-create-page #facePreview {
+    max-width: 180px;
+    max-height: 180px;
+}
+
+.employee-create-page #profilePreview {
+    overflow: hidden;
+}
+
+.employee-create-page .summary-item {
+    font-size: 11px;
+}
+
+.employee-create-page .action-card .btn {
+    min-height: 40px;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .employee-create-page .col-xl-8,
+    .employee-create-page .col-xl-4 {
+        width: 100%;
+    }
+
+    .employee-create-page .col-md-6,
+    .employee-create-page .col-md-5,
+    .employee-create-page .col-md-7,
+    .employee-create-page .col-md-8,
+    .employee-create-page .col-md-4 {
+        width: 100%;
+    }
+
+    .employee-create-page #facePreview {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .employee-create-page .face-capture-content {
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .employee-create-page {
+        padding-bottom: 20px;
+    }
+
+    .employee-create-page
+    > .d-flex.justify-content-between.align-items-center.mb-4 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 14px;
+    }
+
+    .employee-create-page
+    > .d-flex.justify-content-between.align-items-center.mb-4
+    > div {
+        width: 100%;
+    }
+
+    .employee-create-page
+    > .d-flex.justify-content-between.align-items-center.mb-4
+    > button {
+        width: 100%;
+    }
+
+    .employee-create-page .dashboard-card {
+        margin-bottom: 16px !important;
+        border-radius: 12px;
+    }
+
+    .employee-create-page .card-header-custom {
+        padding: 15px 16px;
+    }
+
+    .employee-create-page .card-body-custom {
+        padding: 16px;
+    }
+
+    .employee-create-page .card-title-custom {
+        font-size: 13px;
+    }
+
+    .employee-create-page .form-label {
+        font-size: 10px;
+    }
+
+    .employee-create-page .form-control,
+    .employee-create-page .form-select {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    .employee-create-page .input-group-text {
+        font-size: 12px;
+    }
+
+    /* RFID */
+
+    .employee-create-page #scanRfid {
+        width: 100%;
+        min-height: 38px;
+    }
+
+    /* BIOMÉTRIE */
+
+    .employee-create-page #facePreview {
+        width: 160px !important;
+        height: 160px !important;
+    }
+
+    .employee-create-page .face-capture-content {
+        text-align: center;
+    }
+
+    .employee-create-page #captureFace {
+        width: 100%;
+        min-height: 40px;
+    }
+
+    /* RÉSUMÉ */
+
+    .employee-create-page #profilePreview {
+        width: 72px !important;
+        height: 72px !important;
+    }
+
+    /* ACTIONS */
+
+    .employee-create-page .action-card .btn {
+        width: 100%;
+        min-height: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .employee-create-page .page-title {
+        font-size: 20px;
+    }
+
+    .employee-create-page .page-subtitle {
+        font-size: 10px;
+    }
+
+    .employee-create-page .dashboard-card {
+        border-radius: 10px;
+    }
+
+    .employee-create-page .card-header-custom {
+        padding: 13px 14px;
+    }
+
+    .employee-create-page .card-body-custom {
+        padding: 14px;
+    }
+
+    .employee-create-page .card-title-custom {
+        font-size: 12px;
+    }
+
+    .employee-create-page .form-label {
+        font-size: 9px;
+    }
+
+    .employee-create-page .form-control,
+    .employee-create-page .form-select {
+        min-height: 37px;
+        font-size: 10px;
+    }
+
+    .employee-create-page .form-text {
+        font-size: 9px;
+    }
+
+    .employee-create-page #facePreview {
+        width: 145px !important;
+        height: 145px !important;
+    }
+
+    .employee-create-page #facePreview i {
+        font-size: 38px !important;
+    }
+
+    .employee-create-page .alert {
+        font-size: 10px;
+    }
+
+}
+</style>
 
 
 @push('scripts')

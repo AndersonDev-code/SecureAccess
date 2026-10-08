@@ -154,18 +154,36 @@
                             Alertes de fraude
                         </div>
 
-                        <div class="stat-number text-danger">
-                            {{ $fraudsToday }}
-                        </div>
+                        @if($fraudsToday > 0)
 
-                        <div class="stat-change text-danger">
+    <div class="stat-number text-danger">
+        {{ $fraudsToday }}
+    </div>
 
-                            <i class="bi bi-exclamation-triangle"></i>
+    <div class="stat-change text-danger">
 
-                            {{ $fraudsToday }}
-                            {{ $fraudsToday > 1 ? 'nouvelles alertes' : 'nouvelle alerte' }}
+        <i class="bi bi-exclamation-triangle"></i>
 
-                        </div>
+        {{ $fraudsToday }}
+        {{ $fraudsToday > 1 ? 'nouvelles alertes' : 'nouvelle alerte' }}
+
+    </div>
+
+@else
+
+    <div class="stat-number text-muted">
+        0
+    </div>
+
+    <div class="stat-change text-muted">
+
+        <i class="bi bi-shield-check"></i>
+
+        Aucune alerte
+
+    </div>
+
+@endif
 
                     </div>
 

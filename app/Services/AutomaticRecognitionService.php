@@ -92,31 +92,59 @@ class AutomaticRecognitionService
             // 5. LANCER LA RECONNAISSANCE
             // -------------------------------------------------
 
-            $python = 'C:\\xampp\\htdocs\\secureaccess-face\\venv\\Scripts\\python.exe';
+           
+            // 5. APPELER LE SERVEUR PYTHON SUR RENDER
 
-            $script = 'C:\\xampp\\htdocs\\secureaccess-face\\reconnaissance.py';
+$referencesUtilisateur = $this->faceService
+    ->getReferencesForUser((int) $userId);
 
-            $command = '"' . $python . '" "' . $script . '" "'
-                . $imagePath . '" "'
-                . $referencesPath . '"';
+if (empty($referencesUtilisateur)) {
+    return [
+        'success' => false,
+        'recognized' => false,
+        'message' => 'Aucune référence faciale pour cet employé.',
+    ];
+}
 
-            $output = shell_exec($command);
+$response = Http::timeout(70)
+    ->withHeaders([
+        'X-API-Key' => config('services.face.api_key'),
+    ])
+    ->attach(
+        'photo',
+        file_get_contents($imagePath),
+        $filename
+    )
+    ->post(
+        rtrim(config('services.face.url'), '/') . '/recognize',
+        [
+            'user_id' => (string) $userId,
+            'references_json' => json_encode($referencesUtilisateur),
+        ]
+    );
 
-            $data = json_decode($output, true);
+if (!$response->successful()) {
+    Log::error('Erreur API de reconnaissance faciale', [
+        'status' => $response->status(),
+        'body' => $response->body(),
+    ]);
 
-            if (!is_array($data)) {
+    return [
+        'success' => false,
+        'recognized' => false,
+        'message' => 'Le serveur de reconnaissance est indisponible ou a refusé la requête.',
+    ];
+}
 
-                Log::error('Réponse Python invalide', [
-                    'output' => $output
-                ]);
+$data = $response->json();
 
-                return [
-                    'success' => false,
-                    'recognized' => false,
-                    'message' => 'Réponse invalide du système de reconnaissance.',
-                    'capture' => $filename,
-                ];
-            }
+if (!is_array($data)) {
+    return [
+        'success' => false,
+        'recognized' => false,
+        'message' => 'Réponse invalide du serveur Python.',
+    ];
+}
 
             // -------------------------------------------------
             // 6. SI VISAGE RECONNU → POINTAGE
